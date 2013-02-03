@@ -2,18 +2,26 @@ require 'spec_helper'
 
 describe "StaticPages" do
 
+  let(:title) {'Ruby on Rails Tutorial Sample App'}
+
   describe "Home pages" do
-    it "should have Sample App content" do
+    it "should have the h1 'Sample App'" do
       visit "/static_pages/home"
       #response.status.should be(200)
       page.should have_content "Sample App"
       page.should have_selector('h1', :text => 'Sample App')
     end
 
-    it "should have the right title" do
+    it "should have the base title" do
       visit "/static_pages/home"
-      page.should have_selector("title", :text => 'Ruby on Rails Tutorial Sample App | Home')
+      page.should have_selector("title", :text => "#{title}")
     end
+
+    it "should not have a custom page title" do
+      visit "/static_pages/home"
+      page.should_not have_selector("title", :text => "#{title} | Home")
+    end
+
   end
 
   describe "Help pages" do

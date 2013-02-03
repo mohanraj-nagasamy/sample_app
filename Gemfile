@@ -9,6 +9,8 @@ gem 'sqlite3'
 
 group :development, :test do
   gem 'rspec-rails', '2.12.2'
+  gem 'guard-rspec'
+  gem 'spork'
 end
 
 # Gems used only for assets and not required
@@ -27,6 +29,8 @@ gem 'jquery-rails'
 
 group :test do
   gem 'capybara', '1.1.2'
+  gem 'rb-fsevent', '0.9.1', :require => false
+  gem 'growl', '1.0.3'
 end
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
