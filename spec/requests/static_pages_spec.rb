@@ -8,8 +8,8 @@ describe "StaticPages" do
   describe "Home pages" do
     before { visit root_path }
 
-    it { should have_content "Sample App"}
-    it { should have_selector 'title', :text => full_title('')}
+    it { should have_content "Sample App" }
+    it { should have_selector 'title', :text => full_title('') }
 
     it "should have the h1 'Welcome to the Sample App'" do
       #response.status.should be(200)
@@ -63,7 +63,22 @@ describe "StaticPages" do
       visit contact_path
       page.should have_selector('title', :text => full_title("Contact"))
     end
+  end
 
+  share_examples_for "all static pages" do
+    it { should have_selector "h1", text: heading }
+    it { should have_selector "title", text: full_title(page_title) }
+  end
+
+  describe "Home page" do
+    before(:each) do
+      visit root_path
+    end
+    let(:heading) { "Sample App" }
+    let(:page_title) { "" }
+
+    it_should_behave_like "all static pages"
+    it { should_not have_selector "h1", text: "| Home" }
 
   end
 end
