@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.11'
 gem 'bootstrap-sass'
+gem 'bcrypt-ruby'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -12,6 +13,7 @@ group :development, :test do
   gem 'rspec-rails', '2.12.2'
   gem 'guard-rspec'
   gem 'spork'
+  gem 'annotate'
 end
 
 # Gems used only for assets and not required
